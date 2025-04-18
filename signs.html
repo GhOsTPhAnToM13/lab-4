@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дорожные знаки</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <style>
+        .tooltip {
+            position: relative;
+        }
+
+        .tooltip .ui-tooltip {
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 5px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Дорожные знаки</h1>
+
+    <p class="tooltip">
+        <img src="img/1.1.svg" alt="Дорожный знак 1" data-hint="Знак 1.1. Железнодорожный переезд со шлагбаумом" class="tooltip">
+        <img src="img/1.2.svg" alt="Дорожный знак 2" data-hint="Знак 1.2. Железнодорожный переезд без шлагбаума" class="tooltip">
+        <img src="img/1.3.1.svg" alt="Дорожный знак 3" data-hint="Знак 1.3.1. Однопутная железная дорога" class="tooltip">
+        <img src="img/1.3.2.svg" alt="Дорожный знак 4" data-hint="Знак 1.3.2. Многопутная железная дорога" class="tooltip">
+        <img src="img/1.5.svg" alt="Дорожный знак 5" data-hint="Знак 1.5. Пересечение с трамвайной линией" class="tooltip">
+    </p>
+
+    <p class="tooltip">
+        <img src="img/1.6.svg" alt="Дорожный знак 6" data-hint="Знак 1.6. Пересечение равнозначных дорог" class="tooltip">
+        <img src="img/1.7.svg" alt="Дорожный знак 7" data-hint="Знак 1.7. Пересечение с круговым движением" class="tooltip">
+        <img src="img/1.8.svg" alt="Дорожный знак 8" data-hint="Знак 1.8. Светофорное регулирование" class="tooltip">
+        <img src="img/1.9.svg" alt="Дорожный знак 9" data-hint="Знак 1.9. Разводной мост" class="tooltip">
+        <img src="img/1.10.svg" alt="Дорожный знак 10" data-hint="Знак 1.10. Выезд на набережную" class="tooltip">
+    </p>
+
+    <script>
+        $(function () {
+            $(document).tooltip({
+                items: "img",
+                content: function () {
+                    var $element = $(this);
+                    if ($element.is("img")) {
+                        return $element.data('hint');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
